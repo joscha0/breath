@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
@@ -51,6 +52,8 @@ class BreatheController extends GetxController {
       if (time.value != 0 && breathTime.value == 0) {
         breathTime.value = initBreathTime;
         breathIn.value = !breathIn.value;
+        AudioCache player = AudioCache();
+        player.play('sound.mp3');
       }
       if (breathTime.value > 0) {
         breathTime.value -= 100;
