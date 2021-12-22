@@ -1,9 +1,6 @@
+import 'package:breath/modules/beathe/breathe_page.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  RxBool running = false.obs;
-
-  void start() {
-    running.value = true;
-  }
+  void start() {}
 }
