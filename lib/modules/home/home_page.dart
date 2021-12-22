@@ -1,5 +1,6 @@
 import 'package:breath/modules/beathe/breathe_page.dart';
 import 'package:breath/modules/settings/settings_page.dart';
+import 'package:breath/shared/rive_speed_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -43,7 +44,12 @@ class HomePage extends GetView<HomeController> {
             height: 280,
             width: 280,
             padding: EdgeInsets.fromLTRB(32, 0, 32, 32),
-            child: RiveAnimation.asset('assets/lung.riv'),
+            child: RiveAnimation.asset(
+              'assets/lung.riv',
+              controllers: [
+                SpeedController('breathe', speedMultiplier: 1 / 5.5)
+              ],
+            ),
           ),
           const SizedBox(height: 30),
           SizedBox(

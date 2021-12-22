@@ -1,3 +1,4 @@
+import 'package:breath/shared/rive_speed_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -41,9 +42,15 @@ class BreathePage extends GetView<BreatheController> {
                     animation: true,
                     animationDuration: 1000,
                     percent: c.time / c.initTime,
-                    center: const Padding(
-                      padding: EdgeInsets.fromLTRB(32, 0, 32, 32),
-                      child: RiveAnimation.asset('assets/lung.riv'),
+                    center: Padding(
+                      padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
+                      child: RiveAnimation.asset(
+                        'assets/lung.riv',
+                        controllers: [
+                          SpeedController('breathe',
+                              speedMultiplier: 1 / (c.initBreathTime / 1000))
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 50),
