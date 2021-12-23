@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:breath/modules/home/home_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class BreatheController extends GetxController {
-  int initTime = 300;
-  RxInt time = 300.obs;
+  int initTime = 3;
+  RxInt time = 3.obs;
   String get timeString =>
       Duration(seconds: time.value).toString().split('.').first.substring(2);
 
@@ -60,6 +62,18 @@ class BreatheController extends GetxController {
         update();
       } else {
         _breathTimer.cancel();
+        Get.offAll(() => HomePage());
+        Get.snackbar(
+          'finished',
+          '',
+          backgroundColor: Color.fromRGBO(225, 225, 225, 1),
+          snackPosition: SnackPosition.BOTTOM,
+          isDismissible: true,
+          messageText: Container(),
+          titleText: Text('finished',
+              style:
+                  Get.theme.textTheme.headline5?.copyWith(color: Colors.black)),
+        );
       }
     });
   }
