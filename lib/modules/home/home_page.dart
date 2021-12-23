@@ -3,8 +3,6 @@ import 'package:breath/modules/settings/settings_page.dart';
 import 'package:breath/shared/rive_speed_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:rive/rive.dart';
 
 import 'home_controller.dart';
@@ -21,7 +19,7 @@ class HomePage extends GetView<HomeController> {
         actions: [
           IconButton(
               onPressed: () {
-                Get.to(SettingsPage(),
+                Get.to(() => const SettingsPage(),
                     transition: Transition.rightToLeftWithFade);
               },
               icon: const Icon(Icons.settings))
@@ -43,7 +41,7 @@ class HomePage extends GetView<HomeController> {
           Container(
             height: 280,
             width: 280,
-            padding: EdgeInsets.fromLTRB(32, 0, 32, 32),
+            padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
             child: RiveAnimation.asset(
               'assets/lung.riv',
               controllers: [
@@ -65,7 +63,7 @@ class HomePage extends GetView<HomeController> {
                 ],
               ),
               onPressed: () {
-                Get.to(() => BreathePage());
+                Get.to(() => const BreathePage());
               },
             ),
           )
