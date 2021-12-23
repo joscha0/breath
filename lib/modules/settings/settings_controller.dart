@@ -12,14 +12,14 @@ class SettingsController extends GetxController {
 
   final box = GetStorage();
 
-  RxInt totalTimeSeconds = 300.obs;
+  RxInt totalTimeSeconds = totalTimeSecondsDefault.obs;
   String get totalTimeString => Duration(seconds: totalTimeSeconds.value)
       .toString()
       .split('.')
       .first
       .substring(2);
 
-  RxInt breathTimeMilliseconds = 5500.obs;
+  RxInt breathTimeMilliseconds = breathTimeMillisecondsDefault.obs;
   String get breathTimeString =>
       Duration(milliseconds: breathTimeMilliseconds.value)
           .toString()
@@ -31,8 +31,9 @@ class SettingsController extends GetxController {
     isSelected[themes.indexOf(backgroundColorFromString(
         box.read(boxBackgroundColor) ??
             defaultBackgroundColor.toString()))] = true;
-    totalTimeSeconds.value = box.read(boxTotalTime) ?? 300;
-    breathTimeMilliseconds.value = box.read(boxBreathTime) ?? 5500;
+    totalTimeSeconds.value = box.read(boxTotalTime) ?? totalTimeSecondsDefault;
+    breathTimeMilliseconds.value =
+        box.read(boxBreathTime) ?? breathTimeMillisecondsDefault;
     super.onInit();
   }
 

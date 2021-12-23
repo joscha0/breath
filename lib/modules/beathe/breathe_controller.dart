@@ -2,18 +2,19 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:breath/modules/home/home_page.dart';
+import 'package:breath/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class BreatheController extends GetxController {
-  int initTime = 3;
-  RxInt time = 3.obs;
+  int initTime = totalTimeSecondsDefault;
+  RxInt time = totalTimeSecondsDefault.obs;
   String get timeString =>
       Duration(seconds: time.value).toString().split('.').first.substring(2);
 
-  int initBreathTime = 5500;
-  RxInt breathTime = 5500.obs;
+  int initBreathTime = breathTimeMillisecondsDefault;
+  RxInt breathTime = breathTimeMillisecondsDefault.obs;
 
   RxBool breathIn = true.obs;
 
@@ -62,11 +63,11 @@ class BreatheController extends GetxController {
         update();
       } else {
         _breathTimer.cancel();
-        Get.offAll(() => HomePage());
+        Get.offAll(() => const HomePage());
         Get.snackbar(
           'finished',
           '',
-          backgroundColor: Color.fromRGBO(225, 225, 225, 1),
+          backgroundColor: const Color.fromRGBO(225, 225, 225, 1),
           snackPosition: SnackPosition.BOTTOM,
           isDismissible: true,
           messageText: Container(),
