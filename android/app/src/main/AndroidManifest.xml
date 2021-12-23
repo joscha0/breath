@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.breath">
+    package="com.joscha0.breath">
    <application
         android:label="Breath"
         android:icon="@mipmap/ic_launcher">

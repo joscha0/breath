@@ -33,7 +33,7 @@ class HomePage extends GetView<HomeController> {
             width: double.infinity,
           ),
           Text(
-            'breath',
+            'Breath',
             style: Theme.of(context).textTheme.headline1,
             textAlign: TextAlign.center,
           ),
