@@ -5,6 +5,7 @@ import 'package:breath/shared/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsController extends GetxController {
   List<BackgroundColors> themes = BackgroundColors.values;
@@ -25,6 +26,10 @@ class SettingsController extends GetxController {
           .toString()
           .substring(5, 10);
 
+  RxBool soundOn = true.obs;
+  RxBool hideTimer = false.obs;
+  RxBool hideBreathBar = false.obs;
+
   @override
   void onInit() {
     isSelected = List.generate(backgrounds.length, (index) => false).obs;
@@ -34,6 +39,9 @@ class SettingsController extends GetxController {
     totalTimeSeconds.value = box.read(boxTotalTime) ?? totalTimeSecondsDefault;
     breathTimeMilliseconds.value =
         box.read(boxBreathTime) ?? breathTimeMillisecondsDefault;
+    soundOn.value = box.read(boxSoundOn) ?? true;
+    hideTimer.value = box.read(boxHideTimer) ?? false;
+    hideBreathBar.value = box.read(boxHideBreathBar) ?? false;
     super.onInit();
   }
 
@@ -72,5 +80,24 @@ class SettingsController extends GetxController {
       breathTimeMilliseconds.value -= 500;
     }
     box.write(boxBreathTime, breathTimeMilliseconds.value);
+  }
+
+  void openGithub() async {
+    await launch(githubUrl);
+  }
+
+  void setSoundOn(bool value) {
+    soundOn.value = value;
+    box.write(boxSoundOn, value);
+  }
+
+  void setHideTimer(bool value) {
+    hideTimer.value = value;
+    box.write(boxHideTimer, value);
+  }
+
+  void setHideBreathBar(bool value) {
+    hideBreathBar.value = value;
+    box.write(boxHideBreathBar, value);
   }
 }

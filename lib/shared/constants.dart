@@ -8,6 +8,9 @@ const int maxBreathTimeMilliseconds = 59500;
 const String boxTotalTime = 'totalTime';
 const String boxBreathTime = 'breathTime';
 const String boxBackgroundColor = 'backgroundColor';
+const String boxSoundOn = 'soundOn';
+const String boxHideTimer = 'hideTimer';
+const String boxHideBreathBar = 'hideBreathBar';
 
 // themes
 enum BackgroundColors {
@@ -20,3 +23,5 @@ enum BackgroundColors {
 }
 
 const BackgroundColors defaultBackgroundColor = BackgroundColors.blue;
+
+const String githubUrl = 'https://github.com/joscha0/breath';

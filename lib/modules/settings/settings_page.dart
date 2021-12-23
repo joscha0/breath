@@ -70,11 +70,20 @@ class SettingsPage extends GetView<SettingsController> {
                           children: [
                             IconButton(
                                 onPressed: () => c.increaseTotalTime(),
-                                icon: const Icon(Icons.arrow_drop_up)),
-                            Text('${c.totalTimeString} min'),
+                                icon: const Icon(
+                                  Icons.arrow_drop_up,
+                                  size: 32,
+                                )),
+                            Text(
+                              '${c.totalTimeString} min',
+                              style: Theme.of(context).textTheme.headline6,
+                            ),
                             IconButton(
                                 onPressed: () => c.decreaseTotalTime(),
-                                icon: const Icon(Icons.arrow_drop_down))
+                                icon: const Icon(
+                                  Icons.arrow_drop_down,
+                                  size: 32,
+                                ))
                           ],
                         ),
                       ],
@@ -91,16 +100,72 @@ class SettingsPage extends GetView<SettingsController> {
                           children: [
                             IconButton(
                                 onPressed: () => c.increaseBreathTime(),
-                                icon: const Icon(Icons.arrow_drop_up)),
-                            Text('${c.breathTimeString} sec'),
+                                icon: const Icon(
+                                  Icons.arrow_drop_up,
+                                  size: 32,
+                                )),
+                            Text(
+                              '${c.breathTimeString} sec',
+                              style: Theme.of(context).textTheme.headline6,
+                            ),
                             IconButton(
                                 onPressed: () => c.decreaseBreathTime(),
-                                icon: const Icon(Icons.arrow_drop_down))
+                                icon: const Icon(
+                                  Icons.arrow_drop_down,
+                                  size: 32,
+                                ))
                           ],
                         ),
                       ],
                     ),
                   ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    'Other',
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                  SwitchListTile(
+                    value: c.soundOn.value,
+                    onChanged: (value) => c.setSoundOn(value),
+                    activeColor: Colors.white,
+                    title: const Text('Sound'),
+                    secondary: Icon(
+                      c.soundOn.value ? Icons.volume_up : Icons.volume_mute,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SwitchListTile(
+                    value: c.hideTimer.value,
+                    onChanged: (value) => c.setHideTimer(value),
+                    activeColor: Colors.white,
+                    title: const Text('hide timer'),
+                  ),
+                  SwitchListTile(
+                    value: c.hideBreathBar.value,
+                    onChanged: (value) => c.setHideBreathBar(value),
+                    activeColor: Colors.white,
+                    title: const Text('hide breath bar'),
+                  ),
+                  const SizedBox(height: 30),
+                  Text(
+                    'About',
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                  const Text('This app was inspired by the book'),
+                  const Text('Breath: The New Science of a Lost Art',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
+                  const Text('by James Nestor'),
+                  const SizedBox(height: 20),
+                  IconButton(
+                    icon: Image.asset('assets/github.png'),
+                    onPressed: () => c.openGithub(),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text('Made with ❤️ by @joscha0')
                 ],
               ),
             );

@@ -24,6 +24,8 @@ class BreatheController extends GetxController {
 
   final box = GetStorage();
 
+  late bool soundOn, hideTimer, hideBreathBar;
+
   @override
   void onInit() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
@@ -31,6 +33,9 @@ class BreatheController extends GetxController {
     time.value = initTime;
     initBreathTime = box.read(boxBreathTime) ?? breathTimeMillisecondsDefault;
     breathTime.value = initBreathTime;
+    soundOn = box.read(boxSoundOn) ?? true;
+    hideTimer = box.read(boxHideTimer) ?? false;
+    hideBreathBar = box.read(boxHideBreathBar) ?? false;
     super.onInit();
   }
 
@@ -62,8 +67,10 @@ class BreatheController extends GetxController {
       if (time.value != 0 && breathTime.value == 0) {
         breathTime.value = initBreathTime;
         breathIn.value = !breathIn.value;
-        AudioCache player = AudioCache();
-        player.play('sound.mp3');
+        if (soundOn) {
+          AudioCache player = AudioCache();
+          player.play('sound.mp3');
+        }
       }
       if (breathTime.value > 0) {
         breathTime.value -= 100;
