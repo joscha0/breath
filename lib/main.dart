@@ -11,9 +11,11 @@ void main() {
               onPrimary: Colors.black,
               textStyle:
                   const TextStyle(fontWeight: FontWeight.w300, fontSize: 23))),
-      scaffoldBackgroundColor: Colors.lightBlue[200],
+      scaffoldBackgroundColor: Colors.blue[200],
       textTheme: const TextTheme(
         headline1: TextStyle(color: Colors.white, fontSize: 70),
+        headline2: TextStyle(
+            fontWeight: FontWeight.w300, color: Colors.white, fontSize: 28),
         headline4: TextStyle(fontWeight: FontWeight.w300, color: Colors.white),
         headline5: TextStyle(fontWeight: FontWeight.w300, color: Colors.white),
       ),
