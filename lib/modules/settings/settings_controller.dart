@@ -8,6 +8,27 @@ class SettingsController extends GetxController {
 
   final box = GetStorage();
 
+  RxInt totalTimeSeconds = 300.obs;
+  String get totalTimeString => Duration(seconds: totalTimeSeconds.value)
+      .toString()
+      .split('.')
+      .first
+      .substring(2);
+
+  RxInt breathTimeMilliseconds = 5500.obs;
+  String get breathTimeString =>
+      Duration(milliseconds: breathTimeMilliseconds.value)
+          .toString()
+          .substring(5, 10);
+
+  // {
+  //   Duration _breathDuration =
+  //       Duration(milliseconds: breathTimeMilliseconds.value);
+  //   print(_breathDuration.toString());
+  //   return '${_breathDuration.inSeconds}:${breathTimeMilliseconds.remainder(1000).toString().substring(0, 2)}'
+  //       .padLeft(5, '0');
+  // }
+
   @override
   void onInit() {
     themes = backgrounds.keys.toList();
