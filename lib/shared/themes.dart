@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-Map<String, dynamic> backgrounds = {
-  'blue': Colors.blue[200],
-  'red': Colors.red[200],
-  'green': Colors.green[200],
-  'orange': Colors.orange[200],
-  'indigo': Colors.indigo[200],
-  'black': Colors.black,
+import 'constants.dart';
+
+final Map<BackgroundColors, dynamic> backgrounds = {
+  BackgroundColors.blue: Colors.blue[200],
+  BackgroundColors.red: Colors.red[200],
+  BackgroundColors.green: Colors.green[200],
+  BackgroundColors.orange: Colors.orange[200],
+  BackgroundColors.indigo: Colors.indigo[200],
+  BackgroundColors.black: Colors.black,
 };

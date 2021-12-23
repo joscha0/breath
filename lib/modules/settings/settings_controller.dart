@@ -1,3 +1,4 @@
+import 'package:breath/shared/constants.dart';
 import 'package:breath/shared/theme_controller.dart';
 import 'package:breath/shared/themes.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class SettingsController extends GetxController {
-  late List<String> themes;
+  List<BackgroundColors> themes = BackgroundColors.values;
   late RxList<bool> isSelected;
 
   final box = GetStorage();
@@ -25,9 +26,9 @@ class SettingsController extends GetxController {
 
   @override
   void onInit() {
-    themes = backgrounds.keys.toList();
     isSelected = List.generate(backgrounds.length, (index) => false).obs;
-    isSelected[themes.indexOf(box.read('background'))] = true;
+    isSelected[themes
+        .indexOf(box.read('background') ?? defaultBackgroundColor)] = true;
     totalTimeSeconds.value = box.read('totalTime') ?? 300;
     breathTimeMilliseconds.value = box.read('breathTime') ?? 5500;
     super.onInit();

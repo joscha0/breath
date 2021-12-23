@@ -1,3 +1,4 @@
+import 'package:breath/shared/constants.dart';
 import 'package:breath/shared/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,7 @@ class SettingsPage extends GetView<SettingsController> {
                   ),
                   ToggleButtons(
                     children: [
-                      for (String theme in c.themes) ...[
+                      for (BackgroundColors theme in c.themes) ...[
                         Container(
                           color: backgrounds[theme],
                           width: 50,
