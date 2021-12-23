@@ -63,7 +63,7 @@ class HomePage extends GetView<HomeController> {
                 ],
               ),
               onPressed: () {
-                Get.to(() => const BreathePage());
+                Get.to(() => const BreathePage(), transition: Transition.zoom);
               },
             ),
           )
