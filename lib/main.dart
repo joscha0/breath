@@ -41,6 +41,8 @@ class MyApp extends GetView<ThemeController> {
                 headline5:
                     TextStyle(fontWeight: FontWeight.w300, color: Colors.white),
               ),
+              colorScheme:
+                  ColorScheme.fromSwatch().copyWith(secondary: Colors.white),
             ),
             debugShowCheckedModeBanner: false,
             home: const HomePage(),
