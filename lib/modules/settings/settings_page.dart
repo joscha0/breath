@@ -68,19 +68,11 @@ class SettingsPage extends GetView<SettingsController> {
                         Column(
                           children: [
                             IconButton(
-                                onPressed: () {
-                                  if (c.totalTimeSeconds.value < 3570) {
-                                    c.totalTimeSeconds.value += 30;
-                                  }
-                                },
+                                onPressed: () => c.increaseTotalTime(),
                                 icon: const Icon(Icons.arrow_drop_up)),
                             Text('${c.totalTimeString} min'),
                             IconButton(
-                                onPressed: () {
-                                  if (c.totalTimeSeconds.value > 0) {
-                                    c.totalTimeSeconds.value -= 30;
-                                  }
-                                },
+                                onPressed: () => c.decreaseTotalTime(),
                                 icon: const Icon(Icons.arrow_drop_down))
                           ],
                         ),
@@ -97,19 +89,11 @@ class SettingsPage extends GetView<SettingsController> {
                         Column(
                           children: [
                             IconButton(
-                                onPressed: () {
-                                  if (c.breathTimeMilliseconds.value < 59500) {
-                                    c.breathTimeMilliseconds.value += 500;
-                                  }
-                                },
+                                onPressed: () => c.increaseBreathTime(),
                                 icon: const Icon(Icons.arrow_drop_up)),
                             Text('${c.breathTimeString} sec'),
                             IconButton(
-                                onPressed: () {
-                                  if (c.breathTimeMilliseconds.value > 0) {
-                                    c.breathTimeMilliseconds.value -= 500;
-                                  }
-                                },
+                                onPressed: () => c.decreaseBreathTime(),
                                 icon: const Icon(Icons.arrow_drop_down))
                           ],
                         ),

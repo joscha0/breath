@@ -28,6 +28,8 @@ class SettingsController extends GetxController {
     themes = backgrounds.keys.toList();
     isSelected = List.generate(backgrounds.length, (index) => false).obs;
     isSelected[themes.indexOf(box.read('background'))] = true;
+    totalTimeSeconds.value = box.read('totalTime') ?? 300;
+    breathTimeMilliseconds.value = box.read('breathTime') ?? 5500;
     super.onInit();
   }
 
@@ -37,5 +39,34 @@ class SettingsController extends GetxController {
     box.write('background', themes[index]);
     Get.find<ThemeController>().backgroundColor.value =
         backgrounds[themes[index]];
+  }
+
+  void increaseTotalTime() {
+    if (totalTimeSeconds.value < 3570) {
+      totalTimeSeconds.value += 30;
+    }
+
+    box.write('totalTime', totalTimeSeconds.value);
+  }
+
+  void decreaseTotalTime() {
+    if (totalTimeSeconds.value > 0) {
+      totalTimeSeconds.value -= 30;
+    }
+    box.write('totalTime', totalTimeSeconds.value);
+  }
+
+  void increaseBreathTime() {
+    if (breathTimeMilliseconds.value < 59500) {
+      breathTimeMilliseconds.value += 500;
+    }
+    box.write('breathTime', breathTimeMilliseconds.value);
+  }
+
+  void decreaseBreathTime() {
+    if (breathTimeMilliseconds.value > 0) {
+      breathTimeMilliseconds.value -= 500;
+    }
+    box.write('breathTime', breathTimeMilliseconds.value);
   }
 }
