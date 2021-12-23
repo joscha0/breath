@@ -29,16 +29,17 @@ class SettingsController extends GetxController {
   void onInit() {
     isSelected = List.generate(backgrounds.length, (index) => false).obs;
     isSelected[themes.indexOf(backgroundColorFromString(
-        box.read('background') ?? defaultBackgroundColor.toString()))] = true;
-    totalTimeSeconds.value = box.read('totalTime') ?? 300;
-    breathTimeMilliseconds.value = box.read('breathTime') ?? 5500;
+        box.read(boxBackgroundColor) ??
+            defaultBackgroundColor.toString()))] = true;
+    totalTimeSeconds.value = box.read(boxTotalTime) ?? 300;
+    breathTimeMilliseconds.value = box.read(boxBreathTime) ?? 5500;
     super.onInit();
   }
 
   void selectBackground(int index, BuildContext context) {
     isSelected.value = List.generate(themes.length, (index) => false);
     isSelected[index] = true;
-    box.write('background', themes[index].toString());
+    box.write(boxBackgroundColor, themes[index].toString());
     Get.find<ThemeController>().backgroundColor.value =
         backgrounds[themes[index]];
   }
@@ -48,27 +49,27 @@ class SettingsController extends GetxController {
       totalTimeSeconds.value += 30;
     }
 
-    box.write('totalTime', totalTimeSeconds.value);
+    box.write(boxTotalTime, totalTimeSeconds.value);
   }
 
   void decreaseTotalTime() {
     if (totalTimeSeconds.value > 0) {
       totalTimeSeconds.value -= 30;
     }
-    box.write('totalTime', totalTimeSeconds.value);
+    box.write(boxTotalTime, totalTimeSeconds.value);
   }
 
   void increaseBreathTime() {
     if (breathTimeMilliseconds.value < 59500) {
       breathTimeMilliseconds.value += 500;
     }
-    box.write('breathTime', breathTimeMilliseconds.value);
+    box.write(boxBreathTime, breathTimeMilliseconds.value);
   }
 
   void decreaseBreathTime() {
     if (breathTimeMilliseconds.value > 0) {
       breathTimeMilliseconds.value -= 500;
     }
-    box.write('breathTime', breathTimeMilliseconds.value);
+    box.write(boxBreathTime, breathTimeMilliseconds.value);
   }
 }

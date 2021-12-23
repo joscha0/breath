@@ -14,7 +14,7 @@ class ThemeController extends GetxController {
   @override
   void onInit() {
     backgroundColor = Rx<Color>(backgrounds[backgroundColorFromString(
-        box.read('background') ?? defaultBackgroundColor.toString())]);
+        box.read(boxBackgroundColor) ?? defaultBackgroundColor.toString())]);
     super.onInit();
   }
 }

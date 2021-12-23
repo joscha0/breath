@@ -7,7 +7,7 @@ const int maxBreathTimeMilliseconds = 59500;
 // get storage
 const String boxTotalTime = 'totalTime';
 const String boxBreathTime = 'breathTime';
-const String boxBackgroundColor = 'background';
+const String boxBackgroundColor = 'backgroundColor';
 
 // themes
 enum BackgroundColors {
