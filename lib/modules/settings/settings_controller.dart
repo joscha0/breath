@@ -1,4 +1,6 @@
+import 'package:breath/shared/theme_controller.dart';
 import 'package:breath/shared/themes.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -21,14 +23,6 @@ class SettingsController extends GetxController {
           .toString()
           .substring(5, 10);
 
-  // {
-  //   Duration _breathDuration =
-  //       Duration(milliseconds: breathTimeMilliseconds.value);
-  //   print(_breathDuration.toString());
-  //   return '${_breathDuration.inSeconds}:${breathTimeMilliseconds.remainder(1000).toString().substring(0, 2)}'
-  //       .padLeft(5, '0');
-  // }
-
   @override
   void onInit() {
     themes = backgrounds.keys.toList();
@@ -37,11 +31,11 @@ class SettingsController extends GetxController {
     super.onInit();
   }
 
-  void selectBackground(int index) {
+  void selectBackground(int index, BuildContext context) {
     isSelected.value = List.generate(themes.length, (index) => false);
     isSelected[index] = true;
     box.write('background', themes[index]);
-    Get.changeTheme(Get.theme
-        .copyWith(scaffoldBackgroundColor: backgrounds[themes[index]]));
+    Get.find<ThemeController>().backgroundColor.value =
+        backgrounds[themes[index]];
   }
 }

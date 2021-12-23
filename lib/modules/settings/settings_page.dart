@@ -1,6 +1,5 @@
 import 'package:breath/shared/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'settings_controller.dart';
@@ -49,7 +48,7 @@ class SettingsPage extends GetView<SettingsController> {
                     selectedBorderColor: Colors.white,
                     borderColor: Colors.transparent,
                     onPressed: (index) {
-                      c.selectBackground(index);
+                      c.selectBackground(index, context);
                     },
                   ),
                   const SizedBox(
