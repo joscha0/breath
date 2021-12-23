@@ -6,6 +6,7 @@ import 'package:breath/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class BreatheController extends GetxController {
   int initTime = totalTimeSecondsDefault;
@@ -21,9 +22,15 @@ class BreatheController extends GetxController {
   late Timer _timer;
   late Timer _breathTimer;
 
+  final box = GetStorage();
+
   @override
   void onInit() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    initTime = box.read(boxTotalTime) ?? totalTimeSecondsDefault;
+    time.value = initTime;
+    initBreathTime = box.read(boxBreathTime) ?? breathTimeMillisecondsDefault;
+    breathTime.value = initBreathTime;
     super.onInit();
   }
 
