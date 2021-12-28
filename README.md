@@ -1,16 +1,27 @@
-# breath
+<img src="https://i.postimg.cc/rmvJZh4M/play-store-feature-graphic.png" width=400>
 
-A new Flutter project.
+# Breath
 
-## Getting Started
+<p>
+    <a  href='https://play.google.com/store/apps/details?id=com.joscha0.breath' target="_blank"><img width="128" alt='Get it on Google Play' src='https://i.postimg.cc/FFV0j8Q9/google-play.png'/></a>
+    <a></a>
+                        <a target="_blank" href="https://breath.960.eu/#/"><img width="128" alt='Launch now as Web App'  src='https://i.postimg.cc/tRBHnR7p/pwa.png'/></a>                        
+ </p>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+This app tries to help you with a simple breathing exercise that will help you to focus on long, steady breaths.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<h2><b>Features:</b></h2>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Set time how long the session should last
+- Set breath time (duration of inhalation/ exhalation)
+- Singing bowl sound effect when switching between inhaling and exhaling
+- Change background-color
+- Customizable interface
+- Dark mode (black background)
+
+<p align="middle">
+  <img src="https://i.postimg.cc/1XmDRw3P/Screenshot-20211223-205740.jpg" width="25%" />
+  <img src="https://i.postimg.cc/SRgCnRn9/Screenshot-20211223-205818.jpg" width="25%" /> 
+  <img src="https://i.postimg.cc/L6vNP4cN/Screenshot-20211223-205800.jpg" width="25%" />
+</p>
