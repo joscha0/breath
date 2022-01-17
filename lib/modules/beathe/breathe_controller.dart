@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:wakelock/wakelock.dart';
 
 class BreatheController extends GetxController {
   int initTime = totalTimeSecondsDefault;
@@ -36,6 +37,7 @@ class BreatheController extends GetxController {
     soundOn = box.read(boxSoundOn) ?? true;
     hideTimer = box.read(boxHideTimer) ?? false;
     hideBreathBar = box.read(boxHideBreathBar) ?? false;
+    Wakelock.enable();
     super.onInit();
   }
 
@@ -50,6 +52,7 @@ class BreatheController extends GetxController {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     _timer.cancel();
     _breathTimer.cancel();
+    Wakelock.disable();
     super.onClose();
   }
 
